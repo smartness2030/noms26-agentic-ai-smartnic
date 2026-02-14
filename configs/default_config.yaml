@@ -1,0 +1,38 @@
+# SmartNIC Configuration
+smartnic:
+  device_id: "0000:00:00.0"
+  queue_size: 1024
+  num_queues: 4
+  packet_buffer_size: 2048
+
+# LLM Configuration
+llm:
+  model_name: "distilgpt2"
+  device: "cpu"  # Options: cpu, cuda, smartnic
+  max_length: 50
+  batch_size: 8
+  optimization:
+    quantization: true
+    quantization_bits: 8
+    pruning: false
+    pruning_ratio: 0.5
+
+# Inference Configuration
+inference:
+  timeout_ms: 100
+  max_concurrent_requests: 10
+  enable_caching: true
+  cache_size: 1000
+
+# Logging Configuration
+logging:
+  level: "INFO"  # Options: DEBUG, INFO, WARNING, ERROR
+  log_file: "smartnic_ai.log"
+  enable_console: true
+
+# Experiment Configuration
+experiment:
+  num_iterations: 1000
+  warmup_iterations: 100
+  save_results: true
+  results_dir: "experiments/data"
